@@ -25,7 +25,7 @@
         <td><%= link_to 'Show', movie %></td>
         <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
         <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to 'Favorite', movie_favmovies_path(movie), method: :post %></td>
+        <td><%= link_to 'Make Favorite', movie_favmovies_path(movie), method: :post %></td>
       </tr>
     <% end %>
   </tbody>
@@ -34,3 +34,9 @@
 <br>
 
 <%= link_to 'New Movie', new_movie_path %>
+
+<%= form_with url: "/movies", method: :get do |form| %>
+  <%= form.label :search, "Search for:" %>
+  <%= text_field_tag(:search) %>
+  <%= submit_tag("Search") %>
+<% end %>

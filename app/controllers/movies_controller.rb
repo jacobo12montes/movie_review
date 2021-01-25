@@ -5,8 +5,16 @@ class MoviesController < ApplicationController
   # GET /movies
   # GET /movies.json
   def index
-    @movies = Movie.all
+    @movies = Movie.search(params[:search])
   end
+  # def index
+  #   @movies = Movie.where(nil)
+  #   filtering_params(params).each do |key, value|
+  #     @products = @products.public_send("filter_by_#{key}", value) if value.present?
+  #   end  
+
+    # @movies = Movie.all
+    # render :json => @movies
 
   # GET /movies/1
   # GET /movies/1.json
@@ -63,6 +71,13 @@ class MoviesController < ApplicationController
   end
 
   private
+
+
+
+    # def filtering_params(params)
+    #   params.slice(:director, :rating, :starts_with)
+    # end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_movie
       @movie = Movie.find(params[:id])
@@ -70,6 +85,6 @@ class MoviesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def movie_params
-      params.require(:movie).permit(:title, :description, :movie_lenght, :director, :rating)
+      params.require(:movie).permit(:title, :description, :movie_lenght, :director, :rating, :search)
     end
 end

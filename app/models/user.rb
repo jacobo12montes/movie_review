@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :movies
   has_many :favmovies, dependent: :destroy
+  has_one :api_key, dependent: :destroy
 end

@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :movies
     end
-  end  
+  end
+  
+  resources :api_keys, only: [:index, :create, :destroy]
 
 end

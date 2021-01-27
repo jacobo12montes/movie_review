@@ -15,7 +15,7 @@
   <button><%= link_to "Back", movies_path %></button>
   <button><%= link_to "Favorite Movies", favmovies_path %></button>
   <button><%= link_to "Movies JSON", api_v1_movies_path %></button>
-
+  <button><%= link_to "Create ApiKey", api_keys_path, :method => :post  %></button>
 
     <% if current_user %>  
       <button><%= link_to " Logout", destroy_user_session_path, :method => :delete , class: "destroy_user_session" %></button>

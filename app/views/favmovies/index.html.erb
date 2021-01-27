@@ -1,12 +1,5 @@
-<% @favmovie.each do |fav| %>
-    <% if fav.user_id == current_user.id %>
-        <%= fav.movie.title %>
-    <% end %>    
-    <% end %>
-    
-    
-    
-    <table>
+<h1>FAVORITES</h1>
+  <table>
   <thead>
     <tr>
       <th>Title</th>
